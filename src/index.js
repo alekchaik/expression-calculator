@@ -9,19 +9,13 @@ function expressionCalculator(expr) {
   let bracketsAmount = 0;
   this.parseArray = function(arr) {
     let test = {
-      "*"(previousNum, num) {
-        return previousNum * num;
-      },
+      "*":(previousNum, num) => previousNum * num,
       "/"(previousNum, num) {
         if (num == 0) throw new Error("TypeError: Division by zero.");
         return previousNum / num;
       },
-      "-"(previousNum, num) {
-        return previousNum - num;
-      },
-      "+"(previousNum, num) {
-        return previousNum + num;
-      }
+      "-":(previousNum, num) => previousNum - num,
+      "+":(previousNum, num) => previousNum + num
     };
     let operands = ["/", "*", "-", "+"];
     for (let i = 0; i < 4; i++) {
